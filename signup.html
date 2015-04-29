@@ -69,7 +69,7 @@
     var pay = $("#pay").val();
     var phone = $("#phone").val();
         
-        
+    //set attributes    
     user.set("username", username);
     user.set("password", password);
     user.set("email", email); 
@@ -81,7 +81,7 @@
         
     
         
-                    
+    //Success or fail                
     user.signUp(null, {
     success: function(user) {
     // Hooray! Let them use the app now.

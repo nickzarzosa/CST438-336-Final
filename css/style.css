@@ -26,3 +26,8 @@ nav a
     border-top-left-radius:20px;
 	border-top-right-radius:20px;	
 }
+body{
+            font-family: Verdana, Arial, Times New Roman;
+            background-image: url("http://i.imgur.com/FJU25B3.png");
+            
+        }

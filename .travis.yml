@@ -1,7 +1,19 @@
 language: php
 php:
+<<<<<<< HEAD
  - 5.4
  - 5.5
  - 5.6
  - hhvm
  - nightly
+=======
+  - 5.2
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+  - nightly
+
+
+>>>>>>> 20ac757ac186955228ef5ad4c4a5c77b3bfa4faf

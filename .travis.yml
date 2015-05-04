@@ -1,5 +1,6 @@
 language: php
 php:
+<<<<<<< HEAD
   - 5.2
   - 5.3
   - 5.4
@@ -7,3 +8,7 @@ php:
   - 5.6
   - hhvm
   - nightly
+=======
+ 5.6
+script: "phpunit phpunit.xml"
+>>>>>>> 168038079afdfb069348d21eafe559800ff5c60d

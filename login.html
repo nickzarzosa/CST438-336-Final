@@ -1,0 +1,67 @@
+<!--
+To change this template use Tools | Templates.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+              <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <title>Log in!</title>
+</head>
+<body>
+<div class="main-container">
+    <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" id="username" class="form-control" placeholder="UserName" required="" autofocus="">
+        <input type="password" id="password" class="form-control" placeholder="Password" required="">
+        <div class="checkbox">
+            
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Sign in</button>
+    </form>
+    
+    User: demo
+    Pass: demo
+    
+    <script> 
+    
+ 
+        
+  
+        
+  $("#login").click(function loginFun(e) {
+ 
+    Parse.$ = jQuery;
+ 
+    // Replace this line with the one on your Quickstart Guide Page
+    Parse.initialize("RohxsyYGrfbFJyo2xnetgt1mxrP0H0gRysZ4XvrV", "0en7QirXn3URQvHlUiZxBWEWTQushXy2PYVBXXKU");
+     
+    // Prevent Default Submit Event
+
+ 
+   
+        var username = = $("#username").val();
+        var password = = $("#password").val();
+ 
+    // Call Parse Login function with those variables
+    Parse.User.logIn(username, password, {
+        // If the username and password matches
+        success: function(user) {
+            alert('Welcome!');
+        },
+        // If there is an error
+        error: function(user, error) {
+            alert('Error!');
+            console.log(error);
+        }
+    });
+ 
+});
+    
+    </script>
+    
+</div>
+</body>
+</html>

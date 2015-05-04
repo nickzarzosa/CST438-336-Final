@@ -1,4 +1,2 @@
 language: php
 php:
- -hhvm
- -nightly

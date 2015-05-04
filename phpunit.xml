@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="phptest.php" colors="true">
+<phpunit bootstrap="Tests/phptest.php" colors="true">
 	<php>
 		
 	</php>

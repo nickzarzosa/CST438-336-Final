@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +22,21 @@
       <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 </head>
 <body>
-	<h1> Required Documents </h1> <br />
-
+     
+	<h1> Required Documents </h1> 
+<div id="user-info">
+        Signed in as: <?=$_SESSION['username']?> (<a href="logout.php" class="log-out">Log out</a>)<br><br>
+      </div>
+    
 		<nav>
-		<a href="index.html"> Logout </a>
+		<a href="logout.php"> Logout </a>
 		<a href="signup.html"> Sign Up Page </a>
 		<a href="family.html"> Family Page </a>
 		<a href="profile.html"> Profile </a>
 		</nav>
 		<br />
     
-        <div id="user-info">
-        Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out">Log out</a>)
-      </div>
+       
 	
 	<!-- display documents from database from a table -->
 	<!-- user can upload documents to the database -->
@@ -33,21 +46,6 @@
 		<input type="submit"  name="uploadForm" value="Upload File" /> 
 </form>
 
-    <script>
-          // Add this line to every page, it sends objects to our database. This is the "Key".
-    Parse.initialize("RohxsyYGrfbFJyo2xnetgt1mxrP0H0gRysZ4XvrV", "0en7QirXn3URQvHlUiZxBWEWTQushXy2PYVBXXKU");
-     
     
-        
-        var currentUser = Parse.Session.current();
-        
-        alert(currentUser);
-        
-        document.write(currentUser);
-   
-        
-    
-        
-    </script>
 </body>
 </html>

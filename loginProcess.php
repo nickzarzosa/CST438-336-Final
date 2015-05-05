@@ -25,7 +25,7 @@ if (isset($_POST['loginForm'])) {
          
         $_SESSION["username"] = $result["username"]; 
         $_SESSION["profilePicture"] = $result["profilePicture"]; 
-        header("Location: dashboard.html"); 
+        header("Location: dashboard.php"); 
          
     } 
      

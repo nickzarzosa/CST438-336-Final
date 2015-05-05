@@ -25,12 +25,12 @@ if (!isset($_SESSION['username'])) {
      
 	<h1> Required Documents </h1> 
 <div id="user-info">
-        Signed in as: <?=$_SESSION['username']?> (<a href="logout.php" class="log-out">Log out</a>)<br><br>
+        Signed in as: <?=$_SESSION['username']?> (<a href="includes/logout.php" class="log-out">Log out</a>)<br><br>
       </div>
     
 		<nav>
-		<a href="logout.php"> Logout </a>
-		<a href="signup.html"> Sign Up Page </a>
+		<a href="includes/logout.php"> Logout </a>
+		<a href="familySignup.html"> Add a Family Member</a>
 		<a href="family.html"> Family Page </a>
 		<a href="profile.html"> Profile </a>
 		</nav>

@@ -20,12 +20,13 @@ if (isset($_POST['loginForm'])) {
     $result = $stmt->fetch(); 
      
     if (empty($result)) { 
-        header("Location: login.html?error='wrong username'"); 
+        header("Location: ../login.html?error='wrong username'"); 
     } else { 
          
         $_SESSION["username"] = $result["username"]; 
+        $_SESSION["userID"] = $result["userID"]; 
         $_SESSION["profilePicture"] = $result["profilePicture"]; 
-        header("Location: dashboard.php"); 
+        header("Location: ../dashboard.php"); 
          
     } 
      

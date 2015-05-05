@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.html");
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +23,11 @@
 </head>
 <body>
 	<header>
-      <h1>DOD Beneficiary Web Site Sign Up</h1>
+      <h1>DOD Beneficiary Web Add a Family Member</h1>
     </header>
-	
+	<div id="user-info">
+        Signed in as: <?=$_SESSION['username']?> (<a href="logout.php" class="log-out">Log out</a>)<br><br>
+      </div><br>
      <div style="display:none" class="error">
       Looks like there was a problem saving the object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
     </div>
@@ -26,21 +39,19 @@
       </div>
     
     <div id="fieldsetDiv">
-    	
-    		Username: <input type="text" id="username"> <span id="usernameError"></span> <br />
-    		Password: <input type="password" id="password"> <span id="passwordError"></span> <br />
-			Re-Type Password: <input type="password" id="password2"> <span id="passwordError2"></span> <br />
-            Email: <input type="email" id="email"> <span id="emailError"></span><br />
-            First Name: <input type="text" id="firstName"> <span id="firstNameError"></span><br />
-            Last Name: <input type="text" id="lastName"> <span id="lastNameError"></span><br />
+    	<form action="familySignupProcess.php" method="post">
+    		
+			
+            First Name: <input type="text" id="firstname"> <span id="firstNameError"></span><br />
+            Last Name: <input type="text" id="lastname"> <span id="lastNameError"></span><br />
             Gender: <select id="gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
                     </select> <span id="genderError"></span><br />
-            Phone Number: <input type="text" id="phone"> <span id="phoneError"></span><br />
-            Pay Grade: <input type="text" id="pay"> <span id="payGradeError"></span><br />
+            Date of Birth: <input type="date" id="dob"> <span id="dobError"></span><br />
         
-    		<input type="button" value="Sign Up!" id="signUp"> <br />
+    		<input type="submit" value="Add Family Member" id="familySignUp"> <br />
+        </form>
     </div> 
     
    

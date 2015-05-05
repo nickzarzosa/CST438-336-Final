@@ -10,55 +10,6 @@ header("Location: login.html");
 
 }
 
-require 'includes/dbConnection.php';
-
-if(isset($_POST['uploadForm'])){
-
-echo $_FILES['fileName']['name'] . "\n";
-
-
-echo $_FILES['fileName']['tmp_name'] . "\n";
-
-
-echo $_FILES['fileName']['size'];
-
-echo $_FILES['fileName']['type'];
-
-}
-
-
-$path = "img/" . $_SESSION['username'];
-
-if(!file_exists($path)){ // check whether the user's folder exists
-
-mkdir($path);
-
-}
-
-
-echo "\n" . $path;
-
-$pathOfPic = $path . "/" . $_FILES['fileName']['name'];
-
-echo "\nPath of pic: " . $path . "/" . $_FILES['fileName']['name'];
-
-move_uploaded_file($_FILES['fileName']['tmp_name'],   'img/' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
-
-
-// update database with the name of the file for the profile picture
-
-$dbConn = getConnection();
-
-        $sql = "UPDATE users SET profilePictureDir='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
-
-        $stmt = $dbConn -> prepare($sql);
-
-        $stmt -> execute();
-
-
-
-
-
 
 ?>
 

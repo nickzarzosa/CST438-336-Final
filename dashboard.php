@@ -10,52 +10,7 @@ header("Location: login.html");
 
 }
 
-require 'includes/dbConnection.php';
 
-if(isset($_POST['uploadForm'])){
-
-echo $_FILES['fileName']['name'] . "\n";
-
-
-echo $_FILES['fileName']['tmp_name'] . "\n";
-
-
-echo $_FILES['fileName']['size'];
-
-echo $_FILES['fileName']['type'];
-
-
-
-
-$path = "img/" . $_SESSION['username'];
-
-if(!file_exists($path)){ // check whether the user's folder exists
-
-mkdir($path);
-
-}
-
-
-echo "\n" . $path;
-
-$pathOfPic = $path . "/" . $_FILES['fileName']['name'];
-
-echo "\nPath of pic: " . $path . "/" . $_FILES['fileName']['name'];
-
-move_uploaded_file($_FILES['fileName']['tmp_name'],   'img/' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
-
-
-// update database with the name of the file for the profile picture
-
-$dbConn = getConnection();
-
-        $sql = "UPDATE users SET IDCardImg='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
-
-        $stmt = $dbConn -> prepare($sql);
-
-        $stmt -> execute();
-
-}
 ?>
 
 <!DOCTYPE html>
@@ -89,12 +44,13 @@ $dbConn = getConnection();
 	
 	<!-- display documents from database from a table -->
 <H1>ID Card</H1>
-    	<!-- user can upload documents to the database -->
-<form method="post" enctype="multipart/form-data">
+    
+      <!-- user can upload documents to the database -->
+      <form method="post" action="includes/uploadID.php" enctype="multipart/form-data">
 
       Select image: <input type="file" name="fileName" />
 
-      <input type="submit" value="upload" name="uploadForm"/>
+      <input type="submit"  value="upload" name="uploadForm"/>
 
       </form>
 

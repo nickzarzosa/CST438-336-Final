@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
      
 	<h1> Required Documents </h1> 
 <div id="user-info">
-        Signed in as: <?=$_SESSION['username']?> (<a href="includes/logout.php" class="log-out">Log out</a>)<br><br>
+        Signed in as: <?=$_SESSION['username']?> userID: <?=$_SESSION['userID']?> (<a href="includes/logout.php" class="log-out">Log out</a>)<br><br>
       </div>
     
 		<nav>

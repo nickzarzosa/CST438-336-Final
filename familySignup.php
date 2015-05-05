@@ -48,7 +48,7 @@ if (!isset($_SESSION['username'])) {
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                     </select> <span id="genderError"></span><br />
-            Date of Birth: <input type="date" namd="dob" id="dob"> <span id="dobError"></span><br />
+            Date of Birth: <input type="date" name="dob" id="dob"> <span id="dobError"></span><br />
         
     		<input type="submit" value="Add Family Member" id="familySignUp"> <br />
         </form>

@@ -26,7 +26,7 @@ if (!isset($_SESSION['username'])) {
       <h1>DOD Beneficiary Web Add a Family Member</h1>
     </header>
 	<div id="user-info">
-        Signed in as: <?=$_SESSION['username']?> (<a href="logout.php" class="log-out">Log out</a>)<br><br>
+        Signed in as: <?=$_SESSION['username']?> (<a href="includes/logout.php" class="log-out">Log out</a>)<br><br>
       </div><br>
      <div style="display:none" class="error">
       Looks like there was a problem saving the object. Make sure you've set your application ID and javascript key correctly in the call to <code>Parse.initialize</code> in this file.
@@ -39,16 +39,16 @@ if (!isset($_SESSION['username'])) {
       </div>
     
     <div id="fieldsetDiv">
-    	<form action="familySignupProcess.php" method="post">
+    	<form action="includes/familySignupProcess.php" method="post">
     		
 			
-            First Name: <input type="text" id="firstname"> <span id="firstNameError"></span><br />
-            Last Name: <input type="text" id="lastname"> <span id="lastNameError"></span><br />
-            Gender: <select id="gender">
+            First Name: <input type="text" name="firstname" id="firstname"> <span id="firstNameError"></span><br />
+            Last Name: <input type="text" name="lastname" id="lastname"> <span id="lastNameError"></span><br />
+            Gender: <select name="gender" id="gender">
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                     </select> <span id="genderError"></span><br />
-            Date of Birth: <input type="date" id="dob"> <span id="dobError"></span><br />
+            Date of Birth: <input type="date" namd="dob" id="dob"> <span id="dobError"></span><br />
         
     		<input type="submit" value="Add Family Member" id="familySignUp"> <br />
         </form>

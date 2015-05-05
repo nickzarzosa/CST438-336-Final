@@ -30,7 +30,7 @@ if (!isset($_SESSION['username'])) {
     
 		<nav>
 		<a href="includes/logout.php"> Logout </a>
-		<a href="familySignup.html"> Add a Family Member</a>
+		<a href="familySignup.php"> Add a Family Member</a>
 		<a href="family.html"> Family Page </a>
 		<a href="profile.html"> Profile </a>
 		</nav>

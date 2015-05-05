@@ -29,7 +29,7 @@ $stmt -> execute( array(":fName" => $_POST['firstname'],
     echo"  <br />First Name: " . $_POST['firstname'];
     echo"  <br />Last Name: " . $_POST['lastname'];
     echo"  <br />Email: " . $_POST['gender'];
-    echo"  <br />College: " . $_POST['dob'];
+
 
     
     ?>

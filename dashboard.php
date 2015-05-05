@@ -1,12 +1,61 @@
 <?php
+
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header("Location: login.html");
+
+
+if(!isset($_SESSION['username'])){
+
+header("Location: login.html");
+
+}
+
+require 'includes/dbConnection.php';
+
+if(isset($_POST['uploadForm'])){
+
+echo $_FILES['fileName']['name'] . "\n";
+
+
+echo $_FILES['fileName']['tmp_name'] . "\n";
+
+
+echo $_FILES['fileName']['size'];
+
+echo $_FILES['fileName']['type'];
+
+
+
+
+$path = "img/" . $_SESSION['username'];
+
+if(!file_exists($path)){ // check whether the user's folder exists
+
+mkdir($path);
+
 }
 
 
+echo "\n" . $path;
 
+$pathOfPic = $path . "/" . $_FILES['fileName']['name'];
+
+echo "\nPath of pic: " . $path . "/" . $_FILES['fileName']['name'];
+
+move_uploaded_file($_FILES['fileName']['tmp_name'],   'img/' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
+
+
+// update database with the name of the file for the profile picture
+
+$dbConn = getConnection();
+
+        $sql = "UPDATE users SET IDCardImg='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
+
+        $stmt = $dbConn -> prepare($sql);
+
+        $stmt -> execute();
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,16 +84,36 @@ if (!isset($_SESSION['username'])) {
 		<a href="profile.html"> Profile </a>
 		</nav>
 		<br />
-    
+    Test: <?=$_SESSION['IDCardImg']?> 
        
 	
 	<!-- display documents from database from a table -->
-	<!-- user can upload documents to the database -->
-<form method="post" enctype="multipart/form-data"> 
-	Select a File to upload:<br> 
-		<input type="file" name="fileName" /> <br />
-		<input type="submit"  name="uploadForm" value="Upload File" /> 
-</form>
+<H1>ID Card</H1>
+    	<!-- user can upload documents to the database -->
+<form method="post" enctype="multipart/form-data">
+
+      Select image: <input type="file" name="fileName" />
+
+      <input type="submit" value="upload" name="uploadForm"/>
+
+      </form>
+
+      <?php
+
+      if(empty($_SESSION['IDCardImg'])){
+
+      echo "<img width='500' height='400' src='img/Sample-ID.jpg' alt='Unknown user' ></img>";
+
+      } else{
+
+      // display user's profile picture
+
+      echo "<img src=img/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
+       }
+
+      ?>
+
+
 
     
 </body>

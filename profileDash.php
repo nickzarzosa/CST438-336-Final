@@ -10,7 +10,7 @@ header("Location: login.html");
 
 }
 
-require 'dbConnection.php';
+require 'includes/dbConnection.php';
 
 if(isset($_POST['uploadForm'])){
 
@@ -49,7 +49,7 @@ move_uploaded_file($_FILES['fileName']['tmp_name'],   'img/' . $_SESSION['userna
 
 $dbConn = getConnection();
 
-        $sql = "UPDATE zip_code SET profilePicture='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
+        $sql = "UPDATE users SET profilePictureDir='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
 
         $stmt = $dbConn -> prepare($sql);
 
@@ -67,55 +67,21 @@ $dbConn = getConnection();
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
-
-
-
-  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
-
-       Remove this if you use the .htaccess -->
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-
-
-  <title>profile</title>
-
+  <title>Profile</title>
   <meta name="description" content="">
-
   <meta name="author" content="">
-
-
-
   <meta name="viewport" content="width=device-width; initial-scale=1.0">
-
-
-
-  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-
   <link rel="shortcut icon" href="/favicon.ico">
-
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
 </head>
-
-
-
 <body>
 
   <div>
-
     <header>
-
-      <h1>User Profile</h1>
-
+        <h1>User Profile</h1>
     </header>
-
-
-
-
-
     <div>
 
       Username: <?=$_SESSION['username']?>
@@ -132,7 +98,7 @@ $dbConn = getConnection();
 
       <?php
 
-      if(empty($_SESSION['profilePicture'])){
+      if(empty($_SESSION['profilePictureDir'])){
 
       echo "<img src='img/unknown.jpg' alt='Unknown user' >";
 

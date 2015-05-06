@@ -76,6 +76,7 @@ header("Location: adminLogin.php");
             <div id="field">Phone Number: <input type="text" name="phone" id="phone"> <span id="phoneError"></span><br /></div>
             <div id="field">Pay Grade: <input type="text" name="pay" id="pay"> <span id="payGradeError"></span><br /></div>
             <div id="field">Date of Birth: <input type="date" name="dob" id="dob"> <span id="dobError"></span><br /></div>
+            <div id="field">Age: <input type="text" name="age" id="age"> <span id="ageError"></span><br /></div>
             <div id="field">Date of Last Deployment: <input type="date" name="lastDeployment" id="lastDeployment"> <span id="deploymentError"></span><br /></div>
             
     		<input type="submit" value="Sign Up!" id="signUp"> <br />
@@ -84,7 +85,7 @@ header("Location: adminLogin.php");
     </div> 
     </p>
   </div>
-    <h3>Search Users</h3>
+    <h3>Search and Edit Users</h3>
   <div>
     <p>
         Search for User:
@@ -123,15 +124,17 @@ header("Location: adminLogin.php");
   <h3>Reports</h3>
   <div>
     <p>
-    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-    mauris vel est.
-    </p>
-    <p>
-    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos.
+        <form action="includes/aggregateFunctions.php" method="post">
+            
+           
+            <div id="field">Gender: <select name="gender" id="gender">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    </select> <span id="genderError"></span><br /></div>
+    		<input type="submit" value="Report on this Gender!" id="reportGender"> <br />
+            
+       </form>
+    
     </p>
   </div>
 </div>

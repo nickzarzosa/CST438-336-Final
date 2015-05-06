@@ -11,8 +11,8 @@ session_start();
 
 
 
-$sql= "Insert INTO users (username, password, email, firstname, lastname, gender, dob, phone, lastDeployment, payGrade) 
-VALUES (:username, :password, :email, :firstname, :lastname, :gender, :dob, :phone, :lastDeployment, :payGrade)"; // using named parameters
+$sql= "Insert INTO users (username, password, email, firstname, lastname, gender, dob, age, phone, lastDeployment, payGrade) 
+VALUES (:username, :password, :email, :firstname, :lastname, :gender, :dob, :age, :phone, :lastDeployment, :payGrade)"; // using named parameters
 
 $stmt = $dbConn -> prepare($sql); // preparing statement
 
@@ -22,6 +22,7 @@ $stmt -> execute( array(":username" => $_POST['username'],
                           ":lastname" => $_POST['lastname'],
                           ":gender" => $_POST['gender'],
                           ":dob" =>$_POST['dob'],
+                          ":age" =>$_POST['age'],
                           ":email" => $_POST['email'],
                           ":phone" => $_POST['phone'],
                           ":lastDeployment" => $_POST['lastDeployment'],

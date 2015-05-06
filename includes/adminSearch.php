@@ -20,11 +20,12 @@ session_start();
      
     if (empty($result)) { 
         
-        header("Location: adminDashboard.php?error='no entries'"); 
+        header("Location: ../adminDashboard.php?error='no entries'"); 
     } else { 
          
         
          $foundUsername = $result["username"];
+         $_SESSION['founduser'] = $foundUsername;
           
     }  
     
@@ -52,8 +53,9 @@ session_start();
     
        <br><br>
 	<h1> ADMIN Dashboard </h1> 
-    Username: <?=$foundUsername?>
- 	
+    Username: <?=$foundUsername?><br/>
+ 	<a href="adminedit.php">Edit user</a>
+    <br/>
 		
 
 

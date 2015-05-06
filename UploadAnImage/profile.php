@@ -10,15 +10,6 @@ header("Location: login.html");
 
 }
 
-
-
-// TODO: PLACE profile pic in folder hierarchy
-
-
-
-
-
-
 require 'dbConnection.php';
 
 if(isset($_POST['uploadForm'])){
@@ -29,26 +20,11 @@ echo $_FILES['fileName']['name'] . "\n";
 echo $_FILES['fileName']['tmp_name'] . "\n";
 
 
-
-
-
 echo $_FILES['fileName']['size'];
 
 echo $_FILES['fileName']['type'];
 
-
-//$imageType = exif_imagetype($_FILES['fileName']['tmp_name']); // 1, 2, 3 for gif, jpg or png respectively.
-
-
-//if($imageType != 1 ||  $imageType != 2 || $imageType !=3){
-
-// delete image
-
-//echo "Here";
-
-//unlink($_FILES['fileName']['name']);
-
-//}
+}
 
 
 $path = "img/" . $_SESSION['username'];
@@ -80,7 +56,7 @@ $dbConn = getConnection();
         $stmt -> execute();
 
 
-}
+
 
 
 
@@ -108,7 +84,7 @@ $dbConn = getConnection();
 
   <meta name="description" content="">
 
-  <meta name="author" content="Daniel Diaz">
+  <meta name="author" content="">
 
 
 

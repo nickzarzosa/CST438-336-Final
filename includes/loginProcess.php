@@ -25,7 +25,10 @@ if (isset($_POST['loginForm'])) {
          
         $_SESSION["username"] = $result["username"]; 
         $_SESSION["userID"] = $result["userID"]; 
-        $_SESSION["profilePicture"] = $result["profilePicture"]; 
+        $_SESSION["IDCardImg"] = $result["IDCardImg"]; 
+        $_SESSION["profilePictureDir"] = $result["profilePictureDir"];
+        
+        
         header("Location: ../dashboard.php"); 
          
     } 

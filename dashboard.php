@@ -18,13 +18,9 @@ header("Location: login.html");
 <head>
     <title>DoD Beneficiary Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <meta name="viewport" content="width=device-width">
-	
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-      <!--add this to every page as well for parse DB*/-->
-      <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     
         <nav>
         <a  id="navlinks" href="dashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
@@ -33,27 +29,31 @@ header("Location: login.html");
 		<a  id="navlinks" href="profile.php"> &nbsp;Profile&nbsp; </a>
         <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['username']?>) &nbsp;  </a>
 		</nav>
-          
-      
+    
+       <script>
+      $(function() {
+        $( "#accordion" ).accordion({
+      heightStyle: "content"
+        });
+      });
+      </script>
+    
 </head>
 <body>
-	<h1> Dashboard </h1> 
+	<h1> Required Documents </h1> 
 
-    
-		
-		<br />
-    Test: <?=$_SESSION['IDCardImg']?> 
-       
-	
-	<!-- display documents from database from a table -->
-<H1>ID Card</H1>
-    
-      <!-- user can upload documents to the database -->
+    <div id="accordion">
+        <h3> Welcome <?=$_SESSION['username']?>!</h3>
+        <p> Choose a required document.</p>
+  <h3>ID Card</h3>
+  <div>
+    <p>
+    <!-- user can upload documents to the database -->
       <form method="post" action="includes/uploadID.php" enctype="multipart/form-data">
 
       Select image: <input type="file" name="fileName" />
 
-      <input type="submit"  value="upload" name="uploadForm"/>
+      <input type="submit"  value="Upload ID Card" name="uploadForm"/>
 
       </form>
 
@@ -71,9 +71,71 @@ header("Location: login.html");
        }
 
       ?>
+    </p>
+  </div>
+  <h3>Birth Certifcate</h3>
+  <div>
+    <p>
+    <!-- user can upload documents to the database -->
+      <form method="post" action="includes/uploadBirthCert.php" enctype="multipart/form-data">
 
+      Select image: <input type="file" name="fileName" />
 
+      <input type="submit"  value="Upload Birth Certificate" name="uploadForm"/>
 
+      </form>
+
+      <?php
+
+      if(empty($_SESSION['birthCertificateImg'])){
+
+      echo "<img width='500' height='400' src='img/birthCertificate.jpg' alt='Unknown user' ></img>";
+
+      } else{
+
+      // display user's profile picture
+
+      echo "<img src=img/birthCertificates/" . $_SESSION['username'] . "/" . $_SESSION['birthCertificateImg'];
+       }
+
+      ?>
+    </p>
+  </div>
+    
+  <h3>Birth Certificate</h3>
+  <div>
+    <p>
+    <!-- user can upload documents to the database -->
+      <form method="post" action="includes/uploadForm.php" enctype="multipart/form-data">
+
+      Select image: <input type="file" name="fileName" />
+
+      <input type="submit"  value="Upload Form" name="uploadForm"/>
+
+      </form>
+    
+      <?php
+
+      if(empty($_SESSION['formImg'])){
+
+      echo "<img width='500' height='400' src='img/form.jpg' alt='Unknown user' ></img>";
+
+      } else{
+
+      // display user's profile picture
+
+      echo "<img src=img/form/" . $_SESSION['username'] . "/" . $_SESSION['formImg'];
+       }
+
+      ?>
+    </p>
+   
+  </div>
+  
+</div>
+    
+		
+		
     
 </body>
 </html>

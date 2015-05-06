@@ -32,9 +32,7 @@ header("Location: login.html");
     
        <script>
       $(function() {
-        $( "#accordion" ).accordion({
-      heightStyle: "content"
-        });
+        $( "#accordion" ).accordion();
       });
       </script>
     
@@ -43,12 +41,44 @@ header("Location: login.html");
 	<h1> Required Documents </h1> 
 
     <div id="accordion">
-        <h3> Welcome <?=$_SESSION['username']?>!</h3>
-        <p> Choose a required document.</p>
   <h3>ID Card</h3>
   <div>
     <p>
-    <!-- user can upload documents to the database -->
+    
+    </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+   
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+ 
+    </p>
+   
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    
+    </p>
+  </div>
+</div>
+    
+		
+		<br />
+    Test: <?=$_SESSION['IDCardImg']?> 
+       
+	<div id="accordion">
+	
+    <H3>ID Card</H3>
+    <div>
+        
+        
+      <!-- user can upload documents to the database -->
       <form method="post" action="includes/uploadID.php" enctype="multipart/form-data">
 
       Select image: <input type="file" name="fileName" />
@@ -71,12 +101,14 @@ header("Location: login.html");
        }
 
       ?>
-    </p>
-  </div>
-  <h3>Birth Certifcate</h3>
-  <div>
-    <p>
-    <!-- user can upload documents to the database -->
+    </div>
+        
+       <!-- Birth Certificate -->
+       <H3>Birth Certificate</H3>
+        <div>
+            
+        
+      <!-- user can upload documents to the database -->
       <form method="post" action="includes/uploadBirthCert.php" enctype="multipart/form-data">
 
       Select image: <input type="file" name="fileName" />
@@ -99,13 +131,12 @@ header("Location: login.html");
        }
 
       ?>
-    </p>
-  </div>
-    
-  <h3>Birth Certificate</h3>
-  <div>
-    <p>
-    <!-- user can upload documents to the database -->
+        </div>
+      <!-- FORM -->
+       <H3>Form</H3>
+        <div>
+           
+      <!-- user can upload documents to the database -->
       <form method="post" action="includes/uploadForm.php" enctype="multipart/form-data">
 
       Select image: <input type="file" name="fileName" />
@@ -128,14 +159,11 @@ header("Location: login.html");
        }
 
       ?>
-    </p>
-   
-  </div>
-  
-</div>
+        </div>
+            
+        </div>    
+
     
-		
-		
     
 </body>
 </html>

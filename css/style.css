@@ -22,19 +22,41 @@ nav
 {
 	background:gray;
     width:100%;
-    padding: 10px;
+    
 }
-nav a
+
+#navlinks
 {
-	color: white;
-	background:#c1c1c1;
+	
+    margin: 0px;
+    color: white;
+	background: gray;
+    border-style: dotted;
+    border-right-color: #474747;
+    border-bottom: none;
+    border-top: none;
+    border-left: none;
 	text-align:left;
     text-decoration: none !important;
-    width:100%;
-    padding: 10px;
+    padding-top:20px;
+    
 }
+#logout
+{
+	
+    margin: 0px;
+    color: #d8a600;
+	background: gray;
+	text-align:left;
+    text-decoration: none !important;
+    padding-top:20px;
+    float: right;
+    vertical-align: middle;
+    
+}
+
 body{
-            font-family: Verdana, Arial, Times New Roman;
+            font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
             background-image: url("http://i.imgur.com/FJU25B3.png");
             margin: 0px;
             

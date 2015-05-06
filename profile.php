@@ -24,8 +24,6 @@ header("Location: login.html");
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
       <!--add this to every page as well for parse DB*/-->
       <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-    
-    
         <nav>
         <a  id="navlinks" href="dashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
 		<a  id="navlinks" href="familySignup.php"> &nbsp; Add a Family Member&nbsp; </a>
@@ -33,12 +31,12 @@ header("Location: login.html");
 		<a  id="navlinks" href="profile.php"> &nbsp;Profile&nbsp; </a>
         <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['username']?>) &nbsp;  </a>
 		</nav>
-          
-      
 </head>
 <body>
-	<h1> Dashboard </h1> 
-
+	<h1> Required Documents </h1> 
+<div id="user-info">
+        Signed in as: <?=$_SESSION['username']?> userID: <?=$_SESSION['userID']?> (<a href="includes/logout.php" class="log-out">Log out</a>)<br><br>
+      </div>
     
 		
 		<br />

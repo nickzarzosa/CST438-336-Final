@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['username'])) {
     header("Location: login.html");
 }
@@ -42,8 +43,8 @@ if (!isset($_SESSION['username'])) {
 	<h1>Family</h1>
     
     <?php 
-
-    require 'dbConnection.php'; 
+    require '/includes/dbConnection.php'; 
+    
    
      
     
@@ -72,7 +73,7 @@ if (!isset($_SESSION['username'])) {
     }  
     
    
-}
+
 ?> 
 </body>
 </html>

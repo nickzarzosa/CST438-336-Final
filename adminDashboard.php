@@ -111,6 +111,7 @@ header("Location: adminLogin.php");
   <h3>Reports</h3>
   <div>
     <p>
+		<!-- 
         <form action="includes/aggregateFunctions.php" method="post">
             
            
@@ -120,7 +121,58 @@ header("Location: adminLogin.php");
                     </select> <span id="genderError"></span><br /></div>
     		<input type="submit" value="Report on this Gender!" id="reportGender"> <br />
             
-       </form>
+       </form> -->
+		
+		<?php
+
+			require 'includes/dbConnection.php'; //require database connection
+			$dbConn = getConnection(); //connects with database and tables
+
+			$sql = "SELECT COUNT(gender)FROM users WHERE gender = 'M'"; //aggregate function to count the number of males  
+			$namedParameters = array();
+
+			$stmt = $dbConn->prepare($sql);
+			$stmt->execute($namedParameters);
+			$result = $stmt->fetch();
+
+			$numOfMen = $result['COUNT(gender)'];
+
+			echo "Printing users who are male: " . $numOfMen;
+			print_r($result);
+			
+			echo " <br>";
+			echo " <br>";
+
+
+			$sql = "SELECT COUNT(gender)FROM users WHERE gender = 'F'"; //aggregate function to count the number of females  
+			$namedParameters = array();
+
+			$stmt = $dbConn->prepare($sql);
+			$stmt->execute($namedParameters);
+			$result = $stmt->fetch();
+
+			$numOfWomen = $result['COUNT(gender)'];
+
+			echo "Printing users who are female: " . $numOfWomen; 
+			print_r($result);
+
+			echo " <br>";
+			echo " <br>";
+
+			$sql = "SELECT AVG(age) FROM users"; //aggregate function to calculate average age from male/female users  
+			$namedParameters = array();
+
+			$stmt = $dbConn->prepare($sql);
+			$stmt->execute($namedParameters);
+			$result = $stmt->fetch();
+
+			$averageAge = $result['AVG(age)'];
+
+			echo "Printing average age of users: " . $averageAge; 
+			print_r($result);
+
+?>
+		
     
     </p>
   </div>

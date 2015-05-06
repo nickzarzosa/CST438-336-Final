@@ -15,6 +15,8 @@ $namedparameters[':username']=$selecteduser;
 $stmt = $dbConn->prepare($sql);
 $stmt->execute($namedparameters);
 $result = $stmt->fetch();
+
+
 //print_r($result);
 
 
@@ -42,16 +44,19 @@ $result = $stmt->fetch();
   <script>
 	function edituserdetails() 
 	{        
+    
+     
       $.ajax({
             type: "get",
             url: "admineditsearch.php",
-            dataType: "json",
-            data: { },
+            dataType: "text",
+            
+            data: {"username":$("#username").val(),"firstName":$("#firstName").val(),"lastName":$("#lastName").val(),"lastDeployment":$("#lastDeployment").val(),"payGrade":$("#payGrade").val(),"email":$("#email").val()},
             success: function(data,status) {
-                 
+                 //alert(data);
               },
               complete: function(data,status) { //optional, used for debugging purposes
-                  alert(status);
+                 // alert(status);
               }
          });
 	}
@@ -66,20 +71,23 @@ $result = $stmt->fetch();
     </header>
  
     <div>
-        <a href="reports.php">Go back to reports</a>
-        <form method="post">
-            Username:<input type="text" name="collegeName" value="<?=$result['username']?>"><br/>
-            First name: <input type="text" name="email" value="<?=$result['firstName']?>"><br/>
-            Last name: <input type="text" name="phone" value="<?=$result['lastName']?>"><br/>
-            Last Deployment: <input type="text" name="street"value="<?=$result['lastDeployment']?>"><br/>
-            pay Grade: <input type="text" name="city" value="<?=$result['payGrade']?>"><br/>
-            email: <input type="text" name="zip" value="<?=$result['email']?>"><br/>
+        <a href="adminSearch.php">Go back to reports</a>
+        <form method="get">
+            Username:<input type="text" name="username" id="username" value="<?=$result['username']?>"><br/>
+            First name: <input type="text" name="firstName" id="firstName" value="<?=$result['firstName']?>"><br/>
+            Last name: <input type="text" name="lastName" id="lastName" value="<?=$result['lastName']?>"><br/>
+            Last Deployment: <input type="text" name="lastDeployment" id="lastDeployment" value="<?=$result['lastDeployment']?>"><br/>
+            pay Grade: <input type="text" name="payGrade" id="payGrade" value="<?=$result['payGrade']?>"><br/>
+            email: <input type="text" name="email" id="email" value="<?=$result['email']?>"><br/>
 
             
-            <input type="submit" name="updateform" value="Update">
+            <input type="submit" id="updateform" name="updateform" value="Update">
         </form>
       
     </div>
+    <script>
+        $("#updateform").click(edituserdetails);
+    </script>
 
     <footer>
      <p>&copy; Copyright  by </p>

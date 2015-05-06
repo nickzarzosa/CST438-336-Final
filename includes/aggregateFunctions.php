@@ -1,24 +1,36 @@
 <?php
 
-require 'dbConnectioin.php'; //require database connection
-$dbConn = getConnection(); //connects with database and tables
+session_start(); 
+    require 'dbConnection.php'; 
 
-$sql = "SELECT firstname, lastname, age, gender FROM users where gender = 'M'"; //sql statement to fetch all users who are male
-$namedParameters = array();
+    if(isset($_POST['reportGender'])) { 
+     
+    
+     
+    $dbConn = getConnection(); 
+
+    $sql = "SELECT firstname, lastname, age, gender FROM users where gender = (:gender)"; //sql statement to fetch all users who are male
+    $namedParameters = array();
+                
+    $namedParameters[":gender"]  = $_POST['gender']; 
 
 $stmt = $dbConn->prepare($sql);
 $stmt->execute($namedParameters);
 $result = $stmt->fetch();
+        
+        if (empty($result)) { 
+        echo "Error";
+    } else { 
+         
+         echo "Printing users who are ";
+         echo $_POST['gender'];
+         print_r($result);
+         
+          
+    }
 
- echo "Printing users who are male" . print_r($result);
 
-$sql = "SELECT firstname, lastname, age, gender FROM users where gender = 'F'"; //sql statement to fetch all users who are female
-$namedParameters = array();
 
-$stmt = $dbConn->prepare($sql);
-$stmt->execute($namedParameters);
-$result = $stmt->fetch();
-
-echo "Printing users who are female" . print_r($result);
+    }
 
 ?>

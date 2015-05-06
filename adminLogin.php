@@ -8,7 +8,7 @@
   <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>DOD Beneficiary Login</title>
+  <title>DOD Beneficiary ADMIN Login</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -22,7 +22,7 @@
 <body>
   <div>
     <header>
-      <h1>DOD Beneficiary Web Site Login</h1>
+      <h1>DOD Beneficiary ADMIN Web Site Login</h1>
     </header>
     
     <div id="fieldsetDiv">

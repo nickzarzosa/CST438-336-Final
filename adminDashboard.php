@@ -4,9 +4,9 @@ session_start();
 
 
 
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['usernameAdmin'])){
 
-header("Location: login.html");
+header("Location: adminLogin.php");
 
 }
 
@@ -28,17 +28,16 @@ header("Location: login.html");
     
         <nav>
         <a  id="navlinks" href="dashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
-		<a  id="navlinks" href="familySignup.php"> &nbsp; Add a Family Member&nbsp; </a>
-		<a  id="navlinks" href="family.php"> &nbsp;Family Page&nbsp; </a>
-		<a  id="navlinks" href="profile.php"> &nbsp;Profile&nbsp; </a>
-        <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['username']?>) &nbsp;  </a>
+		<a  id="navlinks" href="Index.html"> &nbsp; Home Page &nbsp; </a>
+        <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['usernameAdmin']?>) &nbsp;  </a>
 		</nav>
           
       
 </head>
 <body>
 	<h1> ADMIN Dashboard </h1> 
-
+    <h4> Welcome <?=$_SESSION['name']?>!  </h4>
+    <img src="img/todo.png">
     
 		
 		<br />

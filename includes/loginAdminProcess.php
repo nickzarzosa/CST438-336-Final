@@ -20,10 +20,11 @@ if(isset($_POST['loginForm'])) {
     $result = $stmt->fetch(); 
      
     if (empty($result)) { 
-        header("Location: ../adminLogin.html?error='wrong username'"); 
+        header("Location: ../adminLogin.php?error='wrong username'"); 
+        echo "error wrong username or password";
     } else { 
          
-        $_SESSION["username"] = $result["username"]; 
+        $_SESSION["usernameAdmin"] = $result["username"]; 
         $_SESSION["userID"] = $result["userID"]; 
         $_SESSION["name"] = $result["name"]; 
         $_SESSION["IDCardImg"] = $result["IDCardImg"]; 

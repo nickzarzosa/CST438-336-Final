@@ -18,17 +18,25 @@ h1
 	text-align:center;
 }
 
+nav 
+{
+	background:gray;
+    width:100%;
+    padding: 10px;
+}
 nav a
 {
 	color: white;
-	background:gray;
-	padding:10px;
-    border-top-left-radius:20px;
-	border-top-right-radius:20px;	
+	background:#c1c1c1;
+	text-align:left;
+    text-decoration: none !important;
+    width:100%;
+    padding: 10px;
 }
 body{
             font-family: Verdana, Arial, Times New Roman;
             background-image: url("http://i.imgur.com/FJU25B3.png");
+            margin: 0px;
             
         }
 #user-info{

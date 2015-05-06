@@ -33,7 +33,7 @@ header("Location: adminLogin.php");
       </script>
     
         <nav>
-        <a  id="navlinks" href="dashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
+        <a  id="navlinks" href="adminDashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
 		<a  id="navlinks" href="Index.html"> &nbsp; Home Page &nbsp; </a>
         <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['usernameAdmin']?>) &nbsp;  </a>
 		</nav>
@@ -61,7 +61,7 @@ header("Location: adminLogin.php");
   <div>
     <p>
      <div id="familyForm">
-    	<form action="includes/signup.php" method="post">
+    	<form action="includes/adminSignup.php" method="post">
             
             <div id="field">Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br /></div>
     		<div id="field">Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br /></div>
@@ -99,8 +99,8 @@ header("Location: adminLogin.php");
   <h3>Delete User</h3>
   <div>
     <p>
-     Search for User:
-      <form method="post"> 
+     Delete User:
+      <form method="post" action="includes/deleteProcess.php"> 
           <input type="text" name="username" id="username"><br>
           <input type="submit" value="Delete!" name="delete" id="delete">
       </form>

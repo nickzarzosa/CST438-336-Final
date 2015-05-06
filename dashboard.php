@@ -40,7 +40,8 @@ header("Location: login.html");
     
 </head>
 <body>
-	<h1> Required Documents </h1> 
+    <br><br><br>
+	<h1> DoD Benefits Dash </h1> 
 
     <div id="accordion">
         <h3> Welcome <?=$_SESSION['username']?>!</h3>

@@ -30,11 +30,11 @@ if (!isset($_SESSION['username'])) {
 		<a  id="navlinks" href="profile.php"> &nbsp;Profile&nbsp; </a>
         <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['username']?>) &nbsp;  </a>
 		</nav>
-      <h1>Add a Family Member</h1>
+      
     </header>
 
-    
-    
+    <br><br>
+    <h1>Add a Family Member</h1>
     <div id="familyForm">
     	<form action="includes/familySignupProcess.php" method="post">
     		

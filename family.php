@@ -37,6 +37,8 @@ if (!isset($_SESSION['username'])) {
 		</nav>
 </head>
 <body>
+    
+       <br><br>
 	<h1>Family</h1>
     
     This is where we will report all family members

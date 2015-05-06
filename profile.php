@@ -17,8 +17,9 @@ header("Location: login.html");
 <html>
 <head>
     <title>DoD Beneficiary Profile</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     
@@ -40,6 +41,8 @@ header("Location: login.html");
     
 </head>
 <body>
+    
+       <br><br>
 	<h1> Required Documents </h1> 
 
     <div id="accordion">
@@ -102,7 +105,7 @@ header("Location: login.html");
     </p>
   </div>
     
-  <h3>Birth Certificate</h3>
+  <h3>Form</h3>
   <div>
     <p>
     <!-- user can upload documents to the database -->

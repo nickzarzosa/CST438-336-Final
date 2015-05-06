@@ -1,44 +1,40 @@
-<?php
+<?php 
 
-/*
- * To change this template use Tools | Templates.
-*/
-
-
-$host = "127.0.0.1";
-$dbname = "Hackathon";
-$username="dbuser";
-$password = "s3cr3t";
-$dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-$dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+     
+    require 'dbConnection.php'; 
+     
+    $dbConn = getConnection(); 
+     
+    
 
 
-$sql= "Insert INTO participant (firstName, lastName, email, college, gender, year) VALUES ( :fName, :lName, :email, :college, :gender, :year)"; // using named parameters
+
+
+$sql= "Insert INTO users (username, password, email, firstname, lastname, gender, dob, phone, lastDeployment, payGrade) 
+VALUES (:username, :password, :email, :firstname, :lastname, :gender, :dob, :phone, :lastDeployment, :payGrade)"; // using named parameters
+
 $stmt = $dbConn -> prepare($sql); // preparing statement
 
-$stmt -> execute( array(":fName" => $_GET['fName'],
-                          ":lName" => $_GET['lName'],
-                          ":email" => $_GET['email'],
-                          ":college" => $_GET['college'],
-                          ":gender" => $_GET['gender'],
-                          ":year" => $_GET['year']
+$stmt -> execute( array(":username" => $_POST['username'],
+                          ":password" => sha1($_POST['password']),
+                          ":firstname" => $_POST['firstname'],
+                          ":lastname" => $_POST['lastname'],
+                          ":gender" => $_POST['gender'],
+                          ":dob" =>$_POST['dob'],
+                          ":email" => $_POST['email'],
+                          ":phone" => $_POST['phone'],
+                          ":lastDeployment" => $_POST['lastDeployment'],
+                          ":payGrade" => $_POST['pay'],
                        ));
 
- echo" Success! " ;
+    echo" Success You have signedup! " ;
+    
+    echo"  <br />Under User Name: " . $_POST['username'];
+    echo"  <br />First Name: " . $_POST['firstname'];
+    echo"  <br />Last Name: " . $_POST['lastname'];
+    echo"  <br />Email: " . $_POST['gender'];
 
-    echo"  <br />First Name: " . $_GET['fName'];
-    echo"  <br />Last Name: " . $_GET['lName'];
-    echo"  <br />Email: " . $_GET['email'];
-    echo"  <br />College: " . $_GET['college'];
-    echo"  <br />Gender: " . $_GET['gender'];
-    echo"  <br />Year: " . $_GET['year'];
+    echo"<br> <a href='../login.html'> Back to login </a> "
 
-
-
-/*
-   *$appArray = $_Get['appType'];
-        
-   * echo "You selected " . count($appArray) 
-     * 
-     *  */
-?>
+    
+    ?>

@@ -11,9 +11,9 @@
 {
 	color: black;
 	width: 750px;
-	
+	text-align: left;
 	background: silver;
-	padding: 25px;
+    padding: 10px;
 	border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -54,19 +54,27 @@ h4
 
 nav 
 {
-	background:gray;
+	 position: fixed;
+      top: 0;
+    background: #383838;
     width:100%;
     
 }
 
+#accordion.ui-accordion-header {
+    background-color: #3f3f3f;
+    margin: 0px;
+}
+
 #navlinks
 {
-	
+	border-style: solid;
+    border-width: 1px;
     margin: 0px;
-    color: white;
-	background: gray;
-    border-style: dotted;
-    border-right-color: #474747;
+    color: #ffffff;
+	background: #383838;
+    
+    border-right-color: #5e5e5e;
     border-bottom: none;
     border-top: none;
     border-left: none;
@@ -79,8 +87,8 @@ nav
 {
 	
     margin: 0px;
-    color: #d8a600;
-	background: gray;
+    color: #ffc300;
+	background: #383838;
 	text-align:left;
     text-decoration: none !important;
     padding-top:20px;
@@ -91,7 +99,7 @@ nav
 
 body{
             font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
-            background-image: url("http://i.imgur.com/FJU25B3.png");
+            background-image: url("../img/bg.png");
             margin: 0px;
             
         }

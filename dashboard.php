@@ -46,6 +46,8 @@ header("Location: login.html");
     <div id="accordion">
         <h3> Welcome <?=$_SESSION['username']?>!</h3>
         <p> Choose a required document.</p>
+        <h3> Edit Personal Information</h3>
+        <p> PUT EDIT STUFF HERE</p>
   <h3>ID Card</h3>
   <div>
     <p>

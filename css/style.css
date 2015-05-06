@@ -1,11 +1,24 @@
 #fieldsetDiv
 {
 	color: black;
-	width: 700px;
-	margin: auto;
+	width: 150px;
+	float: left;
 	background: silver;
 	padding: 25px;
 	border-radius: 15px;
+}
+
+#indexHead{
+    float: left;
+}
+
+#dmdc{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 200px;
+    
 }
 
 footer

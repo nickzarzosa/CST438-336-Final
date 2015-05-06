@@ -30,7 +30,7 @@
 	
 	<style type="text/css">
 	#tfheader{
-		background-color:#c3dfef;
+		
 	}
 	#tfnewsearch{
 		float:right;
@@ -84,9 +84,12 @@
 <body>
   <div>
     <header>
-      <h1>DOD Beneficiary Web Site Login</h1>
+        
     </header>
-	  
+	  <div>
+        <img id="dmdc" src="img/DMDC_Seal.png">
+      <h1 id="indexHead">DoD Beneficiary Web Site </h1>
+      </div>
 	  <!-- HTML for SEARCH BAR -->
 	<div id="tfheader">
 		<form id="tfnewsearch" method="get" action="http://www.google.com">
@@ -100,13 +103,16 @@
     		Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br />
     		Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br />
     		<input type="submit" value="Login!" name="loginForm"/>
+            adminzxy/adminzxy
         </form>
+    </div>
        
 	<footer>
+        
     	<p>&copy; Copyright  by Nickolas Zarzosa, Alex Lamont, Michael Goitia-Sarmiento</p>
-        adminzxy/adminzxy
+        <a href="adminLogin.php">ADMIN</a>
     </footer>
-    </div>
+    
 	  
   </div>
 </body>

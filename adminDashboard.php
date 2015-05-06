@@ -16,7 +16,7 @@ header("Location: login.html");
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DoD Beneficiary Dashboard</title>
+    <title>DoD Beneficiary ADMIN Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <meta name="viewport" content="width=device-width">
@@ -37,7 +37,7 @@ header("Location: login.html");
       
 </head>
 <body>
-	<h1> Dashboard </h1> 
+	<h1> ADMIN Dashboard </h1> 
 
     
 		
@@ -67,7 +67,7 @@ header("Location: login.html");
 
       // display user's profile picture
 
-      echo "<img src=img/id/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
+      echo "<img src=img/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
        }
 
       ?>

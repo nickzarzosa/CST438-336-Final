@@ -2,10 +2,10 @@
 
 function getConnection() {
     //Creating database connection
-    $host = "127.0.0.1";    
+    $host = "localhost";    
     $dbname = "Beneficiary";  
     $username = "root";
-    $password = "";
+    $password = "s3cr3t";
     $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 

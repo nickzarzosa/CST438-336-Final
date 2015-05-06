@@ -11,6 +11,8 @@ header("Location: adminLogin.php");
 }
 
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -82,13 +84,26 @@ header("Location: adminLogin.php");
     </div> 
     </p>
   </div>
-  <h3>Delete Users</h3>
+    <h3>Search Users</h3>
   <div>
     <p>
-    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-    suscipit faucibus urna.
+        Search for User:
+      <form method="post" action="includes/adminSearch.php"> 
+          <input type="text" name="username" id="username"><br>
+          <input type="submit" value="Search!" name="search" id="search">
+      </form>
+      
+      
+    </p>
+  </div>
+  <h3>Delete User</h3>
+  <div>
+    <p>
+     Search for User:
+      <form method="post"> 
+          <input type="text" name="username" id="username"><br>
+          <input type="submit" value="Delete!" name="delete" id="delete">
+      </form>
     </p>
   </div>
   <h3>Edit Users</h3>

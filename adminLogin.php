@@ -40,7 +40,7 @@
         </form>
         
          adminUser/adminUser
-    
+      </div>
 	<footer>
     	<p>&copy; Copyright  by Nickolas Zarzosa, Alex Lamont, Michael Goitia-Sarmiento</p>
     </footer>

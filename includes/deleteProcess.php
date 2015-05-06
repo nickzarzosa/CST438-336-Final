@@ -1,42 +1,69 @@
 <?php 
 session_start(); 
 
-if(isset($_POST['loginForm'])) { 
+    require 'dbConnection.php'; 
+
+    if(isset($_POST['delete'])) { 
      
-    require './dbConnection.php'; 
+    
      
     $dbConn = getConnection(); 
      
-    $sql = "SELECT * FROM users
-            WHERE username = :username  
-            AND password = :password"; 
+    $sql = "DELETE FROM users
+            WHERE username = :username"; 
              
     $namedParameters = array();         
     $namedParameters[":username"]  = $_POST['username']; 
-    $namedParameters[":password"] = sha1($_POST['password']); 
+    
      
     $stmt = $dbConn->prepare($sql); 
     $stmt->execute($namedParameters); 
     $result = $stmt->fetch(); 
      
     if (empty($result)) { 
-        header("Location: ../login.html?error='wrong username'"); 
+        echo "Deleted Record";
+        header("Location: adminDashboard.php?error='no entries'"); 
     } else { 
          
-        $_SESSION["username"] = $result["username"]; 
-        $_SESSION["userID"] = $result["userID"]; 
-        $_SESSION["IDCardImg"] = $result["IDCardImg"]; 
-        $_SESSION["birthCertificateImg"] = $result["birthCertDir"];
-        $_SESSION["formImg"] = $result["formDir"];
-        $_SESSION["profilePictureDir"] = $result["profilePictureDir"];
         
-        
-        header("location: ../dashboard.php"); 
-         
+         $foundUsername = $result["username"];
+          
     }  
+    
+   
 }
 
 
 
-
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DoD Beneficiary ADMIN Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    
+       <nav>
+        <a  id="navlinks" href="../adminDashboard.php"><img src="../img/dashboard.png" width="35" height="35"></a>
+		<a  id="navlinks" href="../Index.html"> &nbsp; Home Page &nbsp; </a>
+        <a  id="logout" href="logout.php"> (Logout: <?=$_SESSION['usernameAdmin']?>) &nbsp;  </a>
+		</nav>
+      
+</head>
+<body>
+    
+       <br><br>
+	<h1> ADMIN Dashboard </h1> 
+    
+    You Deleted a Record! 
+   
+ 	
+		
+
+
+    
+</body>
+</html>

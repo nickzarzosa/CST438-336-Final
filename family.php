@@ -41,6 +41,38 @@ if (!isset($_SESSION['username'])) {
        <br><br>
 	<h1>Family</h1>
     
-    This is where we will report all family members
+    <?php 
+
+    require 'dbConnection.php'; 
+   
+     
+    
+     
+    $dbConn = getConnection(); 
+     
+    $sql = "SELECT * FROM familyMembers
+            WHERE userID = :username"; 
+             
+    $namedParameters = array();         
+    $namedParameters[":username"]  = $_POST['username']; 
+    
+     
+    $stmt = $dbConn->prepare($sql); 
+    $stmt->execute($namedParameters); 
+    $result = $stmt->fetch(); 
+     
+    if (empty($result)) { 
+        
+        header("Location: adminDashboard.php?error='no entries'"); 
+    } else { 
+         
+        
+         $foundUsername = $result["username"];
+          
+    }  
+    
+   
+}
+?> 
 </body>
 </html>

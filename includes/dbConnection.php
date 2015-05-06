@@ -1,16 +1,15 @@
 <?php
 
 function getConnection() {
-    //Creating database connection
-    $host = "localhost";    
+    
+    $host = "23.229.171.225";    
     $dbname = "Beneficiary";  
-    $username = "root";
-    $password = "s3cr3t";
+    $username = "Michael";
+    $password = "TechRent2014!";
     $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 
 	
 	return $dbConn;
 }
-
 

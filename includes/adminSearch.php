@@ -1,8 +1,6 @@
 <?php 
 session_start(); 
-
     require 'dbConnection.php'; 
-
     if(isset($_POST['search'])) { 
      
     
@@ -33,9 +31,6 @@ session_start();
     
    
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +43,7 @@ session_start();
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     
        <nav>
-        <a  id="navlinks" href="../dashboard.php"><img src="../img/dashboard.png" width="35" height="35"></a>
+        <a  id="navlinks" href="../adminDashboard.php"><img src="../img/dashboard.png" width="35" height="35"></a>
 		<a  id="navlinks" href="../Index.html"> &nbsp; Home Page &nbsp; </a>
         <a  id="logout" href="logout.php"> (Logout: <?=$_SESSION['usernameAdmin']?>) &nbsp;  </a>
 		</nav>

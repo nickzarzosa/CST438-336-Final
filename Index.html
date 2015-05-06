@@ -97,9 +97,13 @@
 		</nav>
     </header>
       <br><br>
+    <body>
+        <img id="banner" src="img/banner2.png">
+        
+      
+   
 	  <div>
-        <img id="dmdc" src="img/DMDC_Seal.png">
-      <h1 id="indexHead">DoD Beneficiary Web Site </h1>
+        
       </div>
 	  <!-- HTML for SEARCH BAR -->
 	<div id="tfheader">
@@ -116,14 +120,21 @@
     		Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br />
     		<input type="submit" value="Login!" name="loginForm"/>
             adminzxy/adminzxy
+            
         </form>
     </div>
- 
-	<footer>
+    <br><br><br><br><br><br><br><br><br><br>
+      <div id="signup">
+          <img src="img/signup.png" width="220" height="100" style="float: left">
+        </div>
         
-         <div id="familyForm">
+        
+            <div style="display:none" class="showForm">
+                
+              <div id="familyForm">
+                  
     	<form action="includes/signup.php" method="post">
-            
+            <h4 id="signupForm">Sign Up!</h4>
             <div id="field">Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br /></div>
     		<div id="field">Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br /></div>
 			<div id="field">Re-Type Password: <input type="password" id="password2"> <span id="passwordError2"></span> <br /></div>
@@ -139,17 +150,35 @@
             <div id="field">Date of Birth: <input type="date" name="dob" id="dob"> <span id="dobError"></span><br /></div>
             <div id="field">Date of Last Deployment: <input type="date" name="lastDeployment" id="lastDeployment"> <span id="deploymentError"></span><br /></div>
             
-    		<input type="submit" value="Sign Up!" id="signUp"> <br />
+    		<input type="submit" value="Sign Up!" id="signUp"> 
+            
+                
+            <input type="button" id="close" value="Close">
        </form>
-    </div> 
+       
+         </div>
+        </div>
+        
+        <br> <br> <br> <br> <br> <br> <br> <br> <br><br> <br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br><br> <br> <br> <br> <br>
+ </body>
+      
+	<footer>
     	<p>&copy; Copyright  by Nickolas Zarzosa, Alex Lamont, Michael Goitia-Sarmiento</p>
         <a href="adminLogin.php">ADMIN</a>
     </footer>
     
 	<script>
-      $(function() {
-        $( "#accordion" ).accordion();
-      });
+    $("#signup").click( function(){
+            
+            //$(this).css("display","none");
+            $(".showForm").show();
+    } );
+     $("#close").click( function(){
+            
+            //$(this).css("display","none");
+            $(".showForm").hide();
+    } );
+     
   </script>
       
   </div>

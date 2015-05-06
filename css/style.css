@@ -6,10 +6,21 @@
 	float: left;
 	background: silver;
 	padding: 25px;
+    padding-right: 50px;
 	border-radius: 15px;
+    text-align: left;
+}
+#banner{
+    width:100%;
+    background-color: black;
 }
 #field{
     padding: 5px;
+}
+#signup{
+    float: left;
+    width:25px;
+    height:25px;
 }
 
 #fieldsetDivAdmin
@@ -23,6 +34,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 
 #familyForm
 {
@@ -54,10 +66,7 @@
     float: right; !important
 }
 
-footer
-{
-	text-align: center;
-}
+
 
 h1
 {
@@ -122,4 +131,11 @@ body{
         }
 #user-info{
     float: right;
+}
+
+
+footer{
+    background-color: black;
+    text-align:center;
+    color: white;
 }

@@ -103,7 +103,7 @@ header("Location: login.html");
     </p>
   </div>
     
-  <h3>Birth Certificate</h3>
+  <h3>Form</h3>
   <div>
     <p>
     <!-- user can upload documents to the database -->

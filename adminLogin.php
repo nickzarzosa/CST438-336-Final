@@ -25,7 +25,7 @@
       <h1>DOD Beneficiary ADMIN Web Site Login</h1>
     </header>
     
-    <div id="fieldsetDiv">
+    <div id="fieldsetDivAdmin">
     	<form action="includes/loginAdminProcess.php" method="post">
     		Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br />
     		Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br />

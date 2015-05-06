@@ -1,3 +1,4 @@
+
 #fieldsetDiv
 {
 	color: black;
@@ -7,6 +8,19 @@
 	padding: 25px;
 	border-radius: 15px;
 }
+
+#fieldsetDivAdmin
+{
+	color: black;
+	width: 250px;
+	text-align:center;
+	background: silver;
+	padding: 25px;
+	border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #familyForm
 {
 	color: black;

@@ -1,9 +1,9 @@
 <?php 
 session_start(); 
 
-if (isset($_POST['loginForm'])) { 
+if(isset($_POST['loginForm'])) { 
      
-    require 'dbConnection.php'; 
+    require './dbConnection.php'; 
      
     $dbConn = getConnection(); 
      
@@ -29,12 +29,12 @@ if (isset($_POST['loginForm'])) {
         $_SESSION["profilePictureDir"] = $result["profilePictureDir"];
         
         
-        header("Location: ../dashboard.php"); 
+        header("location: ../dashboard.php"); 
          
-    } 
-     
-     
-} 
+    }  
+}
+
+header("location: ../login.html"); 
 
 
 ?>

@@ -68,7 +68,7 @@ header("Location: login.html");
 
       // display user's profile picture
 
-      echo "<img src=img/id/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
+      echo "<img width='500' height='400' src=img/id/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
        }
 
       ?>
@@ -96,7 +96,7 @@ header("Location: login.html");
 
       // display user's profile picture
 
-      echo "<img src=img/birthCertificates/" . $_SESSION['username'] . "/" . $_SESSION['birthCertificateImg'];
+      echo "<img width='500' height='400' src=img/birthCertificates/" . $_SESSION['username'] . "/" . $_SESSION['birthCertificateImg'];
        }
 
       ?>
@@ -125,7 +125,7 @@ header("Location: login.html");
 
       // display user's profile picture
 
-      echo "<img src=img/form/" . $_SESSION['username'] . "/" . $_SESSION['formImg'];
+      echo "<img width='500' height='400' src=img/form/" . $_SESSION['username'] . "/" . $_SESSION['formImg'];
        }
 
       ?>

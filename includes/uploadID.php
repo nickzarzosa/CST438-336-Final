@@ -43,7 +43,7 @@ $pathOfPic = $path . "/" . $_FILES['fileName']['name'];
 
 echo "\nPath of pic: " . $path . "/" . $_FILES['fileName']['name'];
 
-move_uploaded_file($_FILES['fileName']['tmp_name'],   '../img/' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
+move_uploaded_file($_FILES['fileName']['tmp_name'],   '../img/id' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
 
 echo "<a href='../dashboard.php'> Back to Dash </a>";
     

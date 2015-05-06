@@ -28,7 +28,7 @@ echo $_FILES['fileName']['type'];
 
 
 
-$path = "../img/" . $_SESSION['username'];
+$path = "../img/form/" . $_SESSION['username'];
 
 if(!file_exists($path)){ // check whether the user's folder exists
 
@@ -43,7 +43,7 @@ $pathOfPic = $path . "/" . $_FILES['fileName']['name'];
 
 echo "\nPath of pic: " . $path . "/" . $_FILES['fileName']['name'];
 
-move_uploaded_file($_FILES['fileName']['tmp_name'],   '../img/' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
+move_uploaded_file($_FILES['fileName']['tmp_name'],   '../img/form/' . $_SESSION['username'] . "/" . $_FILES['fileName']['name']);
 
 echo "<a href='../dashboard.php'> Back to Dash </a>";
     
@@ -51,7 +51,7 @@ echo "<a href='../dashboard.php'> Back to Dash </a>";
 
 $dbConn = getConnection();
 
-        $sql = "UPDATE users SET IDCardImg='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
+        $sql = "UPDATE users SET formDir='" . $_FILES['fileName']['name'] . "'WHERE username='" .$_SESSION['username']. "'";
 
         $stmt = $dbConn -> prepare($sql);
 

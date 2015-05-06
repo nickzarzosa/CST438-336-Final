@@ -27,6 +27,7 @@ if(isset($_POST['loginForm'])) {
         $_SESSION["userID"] = $result["userID"]; 
         $_SESSION["IDCardImg"] = $result["IDCardImg"]; 
         $_SESSION["birthCertificateImg"] = $result["birthCertDir"];
+        $_SESSION["formImg"] = $result["formDir"];
         $_SESSION["profilePictureDir"] = $result["profilePictureDir"];
         
         

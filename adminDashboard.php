@@ -138,7 +138,7 @@ header("Location: adminLogin.php");
 		
 		<?php
 
-			require 'dbConnection.php'; //require database connection
+			require 'includes/dbConnection.php'; //require database connection
 			$dbConn = getConnection(); //connects with database and tables
 
 			$sql = "SELECT COUNT(gender)FROM users WHERE gender = 'M'"; //aggregate function to count the number of males  

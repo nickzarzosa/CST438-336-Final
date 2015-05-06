@@ -34,7 +34,7 @@ if(isset($_POST['loginForm'])) {
     }  
 }
 
-header("location: ../login.html"); 
+
 
 
 ?>

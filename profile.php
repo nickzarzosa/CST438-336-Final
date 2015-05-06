@@ -34,9 +34,7 @@ header("Location: login.html");
 </head>
 <body>
 	<h1> Required Documents </h1> 
-<div id="user-info">
-        Signed in as: <?=$_SESSION['username']?> userID: <?=$_SESSION['userID']?> (<a href="includes/logout.php" class="log-out">Log out</a>)<br><br>
-      </div>
+
     
 		
 		<br />
@@ -51,7 +49,7 @@ header("Location: login.html");
 
       Select image: <input type="file" name="fileName" />
 
-      <input type="submit"  value="upload" name="uploadForm"/>
+      <input type="submit"  value="Upload ID Card" name="uploadForm"/>
 
       </form>
 
@@ -70,7 +68,59 @@ header("Location: login.html");
 
       ?>
 
+       <!-- Birth Certificate -->
+       <H1>Birth Certificate</H1>
+    
+      <!-- user can upload documents to the database -->
+      <form method="post" action="includes/uploadBirthCert.php" enctype="multipart/form-data">
 
+      Select image: <input type="file" name="fileName" />
+
+      <input type="submit"  value="Upload Birth Certificate" name="uploadForm"/>
+
+      </form>
+
+      <?php
+
+      if(empty($_SESSION['birthCertificateImg'])){
+
+      echo "<img width='500' height='400' src='img/birthCertificate.jpg' alt='Unknown user' ></img>";
+
+      } else{
+
+      // display user's profile picture
+
+      echo "<img src=img/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
+       }
+
+      ?>
+
+      <!-- FORM -->
+       <H1>Form</H1>
+    
+      <!-- user can upload documents to the database -->
+      <form method="post" action="includes/uploadForm.php" enctype="multipart/form-data">
+
+      Select image: <input type="file" name="fileName" />
+
+      <input type="submit"  value="Upload Form" name="uploadForm"/>
+
+      </form>
+
+      <?php
+
+      if(empty($_SESSION['formImg'])){
+
+      echo "<img width='500' height='400' src='img/form.jpg' alt='Unknown user' ></img>";
+
+      } else{
+
+      // display user's profile picture
+
+      echo "<img src=img/" . $_SESSION['username'] . "/" . $_SESSION['IDCardImg'];
+       }
+
+      ?>
 
     
 </body>

@@ -45,7 +45,7 @@ header("Location: adminLogin.php");
        <br><br>
 	<h1> ADMIN Dashboard </h1> 
     
-    <img src="img/todo.png">
+    
     
 	
 
@@ -107,20 +107,7 @@ header("Location: adminLogin.php");
       </form>
     </p>
   </div>
-  <h3>Edit Users</h3>
-  <div>
-    <p>
-    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-    </p>
-    <ul>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
-    </ul>
-  </div>
+  
   <h3>Reports</h3>
   <div>
     <p>

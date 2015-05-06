@@ -41,13 +41,59 @@ header("Location: login.html");
 </head>
 <body>
     <br><br><br>
-	<h1> DoD Benefits Dash </h1> 
+    <div id="profilePicDash">
+        
+    
+    <?php
+
+     
+
+      echo "<img  width='150' height='175' src=img/profile/" . $_SESSION['username'] . "/" . $_SESSION['profilePictureDir'];
+       
+
+      ?>
+        </div>
+    
+    
+    <div>
+       <h1> DoD Benefits Dash </h1>  
+    </div>
+	
+    
 
     <div id="accordion">
         <h3> Welcome <?=$_SESSION['username']?>!</h3>
         <p> Choose a required document.</p>
         <h3> Edit Personal Information</h3>
         <p> PUT EDIT STUFF HERE</p>
+        <h3>Profile Picture</h3>
+  <div>
+    <p>
+    <!-- user can upload documents to the database -->
+      <form method="post" action="includes/uploadProfilePic.php" enctype="multipart/form-data">
+
+      Select image: <input type="file" name="fileName" />
+
+      <input type="submit"  value="Upload Profile" name="uploadProfilePic"/>
+
+      </form>
+
+      <?php
+
+      if(empty($_SESSION['profilePictureDir'])){
+
+      echo "<img width='500' height='400' src='img/Sample-ID.jpg' alt='Unknown user' ></img>";
+
+      } else{
+
+      // display user's profile picture
+
+      echo "<img width='500' height='400' src=img/profile/" . $_SESSION['username'] . "/" . $_SESSION['profilePictureDir'];
+       }
+
+      ?>
+    </p>
+  </div>
   <h3>ID Card</h3>
   <div>
     <p>

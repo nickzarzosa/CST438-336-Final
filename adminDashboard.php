@@ -58,26 +58,27 @@ header("Location: adminLogin.php");
   <h3>ADD Users</h3>
   <div>
     <p>
-    <div id="familyForm">
+     <div id="familyForm">
     	<form action="includes/signup.php" method="post">
-            <h5>Add User</h5>
-    		Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br />
-    		Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br />
-			Re-Type Password: <input type="password" id="password2"> <span id="passwordError2"></span> <br />
-            Email: <input type="email" name="email" id="email"> <span id="emailError"></span><br />
-            First Name: <input type="text" name="firstname" id="firstName"> <span id="firstNameError"></span><br />
-            Last Name: <input type="text" name="lastname" id="lastName"> <span id="lastNameError"></span><br />
-            Gender: <select name="gender" id="gender">
+            
+            <div id="field">Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br /></div>
+    		<div id="field">Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br /></div>
+			<div id="field">Re-Type Password: <input type="password" id="password2"> <span id="passwordError2"></span> <br /></div>
+            <div id="field">Email: <input type="email" name="email" id="email"> <span id="emailError"></span><br /></div>
+            <div id="field">First Name: <input type="text" name="firstname" id="firstName"> <span id="firstNameError"></span><br /></div>
+            <div id="field">Last Name: <input type="text" name="lastname" id="lastName"> <span id="lastNameError"></span><br /></div>
+            <div id="field">Gender: <select name="gender" id="gender">
                     <option value="M">Male</option>
                     <option value="F">Female</option>
-                    </select> <span id="genderError"></span><br />
-            Phone Number: <input type="text" name="phone" id="phone"> <span id="phoneError"></span><br />
-            Pay Grade: <input type="text" name="pay" id="pay"> <span id="payGradeError"></span><br />
-            Date of Birth: <input type="date" name="dob" id="dob"> <span id="dobError"></span><br />
-            Date of Last Deployment: <input type="date" name="lastDeployment" id="lastDeployment"> <span id="deploymentError"></span><br />
+                    </select> <span id="genderError"></span><br /></div>
+            <div id="field">Phone Number: <input type="text" name="phone" id="phone"> <span id="phoneError"></span><br /></div>
+            <div id="field">Pay Grade: <input type="text" name="pay" id="pay"> <span id="payGradeError"></span><br /></div>
+            <div id="field">Date of Birth: <input type="date" name="dob" id="dob"> <span id="dobError"></span><br /></div>
+            <div id="field">Date of Last Deployment: <input type="date" name="lastDeployment" id="lastDeployment"> <span id="deploymentError"></span><br /></div>
             
     		<input type="submit" value="Sign Up!" id="signUp"> <br />
        </form>
+   
     </div> 
     </p>
   </div>

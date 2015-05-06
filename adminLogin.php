@@ -22,13 +22,20 @@
 <body>
   <div>
     <header>
+          <nav>
+        <a  id="navlinks" href="Index.html"><img src="img/home.png" width="35" height="35"></a>
+		<a  id="navlinks" href="signup.html"> &nbsp; Sign Up&nbsp; </a>
+		<a  id="navlinks" href="login.html"> &nbsp;Log In&nbsp; </a>
+		</nav>
+        <br><br>
       <h1>DOD Beneficiary ADMIN Web Site Login</h1>
     </header>
     
     <div id="fieldsetDivAdmin">
     	<form action="includes/loginAdminProcess.php" method="post">
-    		Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br />
-    		Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br />
+    		<div id="field">
+                Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br /></div>
+            <div id="field"> Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br /></div>
     		<input type="submit" value="Login!" name="loginForm"/>
         </form>
         

@@ -8,13 +8,16 @@
 	padding: 25px;
 	border-radius: 15px;
 }
+#field{
+    padding: 5px;
+}
 
 #fieldsetDivAdmin
 {
 	color: black;
 	width: 250px;
 	text-align:center;
-	background: silver;
+	background: #ffffff;
 	padding: 25px;
 	border-radius: 15px;
     margin-left: auto;

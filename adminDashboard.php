@@ -152,6 +152,9 @@ header("Location: adminLogin.php");
 
 			echo "Printing users who are male: " . $numOfMen;
 			print_r($result);
+			
+			echo " <br>";
+			echo " <br>";
 
 
 			$sql = "SELECT COUNT(gender)FROM users WHERE gender = 'F'"; //aggregate function to count the number of females  
@@ -166,6 +169,9 @@ header("Location: adminLogin.php");
 			echo "Printing users who are female: " . $numOfWomen; 
 			print_r($result);
 
+			echo " <br>";
+			echo " <br>";
+
 			$sql = "SELECT AVG(age) FROM users"; //aggregate function to calculate average age from male/female users  
 			$namedParameters = array();
 
@@ -173,7 +179,9 @@ header("Location: adminLogin.php");
 			$stmt->execute($namedParameters);
 			$result = $stmt->fetch();
 
-			echo "Printing average age of users"; 
+			$averageAge = $result['AVG(age)'];
+
+			echo "Printing average age of users: " . $averageAge; 
 			print_r($result);
 
 ?>

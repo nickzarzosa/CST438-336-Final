@@ -34,6 +34,17 @@
     margin-left: auto;
     margin-right: auto;
 }
+#fieldsetDivAdmin1
+{
+	color: black;
+	width: 250px;
+	text-align:left;
+	background: #ffffff;
+	padding: 25px;
+	border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 #familyForm

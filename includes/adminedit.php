@@ -33,7 +33,7 @@ $result = $stmt->fetch();
   <title>adminedit</title>
   <meta name="description" content="">
   <meta name="author" content="zarz2942">
-
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
   <meta name="viewport" content="width=device-width; initial-scale=1.0">
 
   <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
@@ -66,31 +66,42 @@ $result = $stmt->fetch();
 
 <body>
   <div>
+        <nav>
+        <a  id="navlinks" href="../adminDashboard.php"><img src="../img/dashboard.png" width="35" height="35"></a>
+		<a  id="navlinks" href="../Index.html"> &nbsp; Home Page &nbsp; </a>
+        <a  id="logout" href="logout.php"> (Logout: <?=$_SESSION['usernameAdmin']?>) &nbsp;  </a>
+		</nav>
     <header>
+        <br><br>
       <h1>Edit User</h1>
     </header>
  
     <div>
-        <a href="adminSearch.php">Go back to reports</a>
+        <div id="fieldsetDivAdmin1">
+            
+        
+        
         <form method="get">
-            Username:<input type="text" name="username" id="username" value="<?=$result['username']?>"><br/>
-            First name: <input type="text" name="firstName" id="firstName" value="<?=$result['firstName']?>"><br/>
-            Last name: <input type="text" name="lastName" id="lastName" value="<?=$result['lastName']?>"><br/>
-            Last Deployment: <input type="text" name="lastDeployment" id="lastDeployment" value="<?=$result['lastDeployment']?>"><br/>
-            pay Grade: <input type="text" name="payGrade" id="payGrade" value="<?=$result['payGrade']?>"><br/>
-            email: <input type="text" name="email" id="email" value="<?=$result['email']?>"><br/>
+            <div id="field">
+                Username:<input type="text" name="username" id="username" value="<?=$result['username']?>"><br/></div>
+            <div id="field">First name: <input type="text" name="firstName" id="firstName" value="<?=$result['firstName']?>"><br/></div>
+            <div id="field">Last name: <input type="text" name="lastName" id="lastName" value="<?=$result['lastName']?>"><br/></div>
+            <div id="field">Last Deployment: <input type="text" name="lastDeployment" id="lastDeployment" value="<?=$result['lastDeployment']?>"><br/></div>
+            <div id="field">pay Grade: <input type="text" name="payGrade" id="payGrade" value="<?=$result['payGrade']?>"><br/></div>
+            <div id="field">email: <input type="text" name="email" id="email" value="<?=$result['email']?>"><br/></div>
 
             
             <input type="submit" id="updateform" name="updateform" value="Update">
+            <a href="../adminDashboard.php" ><input type="button" value="Back to Admin Dashboard" ></a>
         </form>
-      
+      </div>
     </div>
     <script>
         $("#updateform").click(edituserdetails);
     </script>
 
     <footer>
-     <p>&copy; Copyright  by </p>
+    
     </footer>
   </div>
 </body>

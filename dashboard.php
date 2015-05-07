@@ -26,7 +26,6 @@ header("Location: login.html");
         <a  id="navlinks" href="dashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
 		<a  id="navlinks" href="familySignup.php"> &nbsp; Add a Family Member&nbsp; </a>
 		<a  id="navlinks" href="family.php"> &nbsp;Family Page&nbsp; </a>
-		<a  id="navlinks" href="profile.php"> &nbsp;Profile&nbsp; </a>
         <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['username']?>) &nbsp;  </a>
 		</nav>
     
@@ -41,26 +40,23 @@ header("Location: login.html");
 </head>
 <body>
     <br><br><br>
-    <div id="profilePicDash">
-        
-    
-    <?php
+   
+    <?php  
+    if(empty($_SESSION['profilePictureDir'])){
 
-     
+      echo "<img id='profilePicDash' src='img/unknown.jpg' alt='Unknown user' ></img>";
 
-      echo "<img  width='150' height='175' src=img/profile/" . $_SESSION['username'] . "/" . $_SESSION['profilePictureDir'];
+      } else{
+      echo "<img id='profilePicDash' src='img/profile/" . $_SESSION['username'] . "/" . $_SESSION['profilePictureDir'] . "'>";
+      }
+    ?>
        
-
-      ?>
-        </div>
-    
-    
     <div>
        <h1> DoD Benefits Dash </h1>  
     </div>
-	
+    <div id="container">
+        
     
-
     <div id="accordion">
         <h3> Welcome <?=$_SESSION['username']?>!</h3>
         <p> Choose a required document.</p>
@@ -82,7 +78,7 @@ header("Location: login.html");
 
       if(empty($_SESSION['profilePictureDir'])){
 
-      echo "<img width='500' height='400' src='img/Sample-ID.jpg' alt='Unknown user' ></img>";
+      echo "<img width='500' height='400' src='img/unknown.jpg' alt='Unknown user' ></img>";
 
       } else{
 
@@ -182,7 +178,8 @@ header("Location: login.html");
   </div>
   
 </div>
-    
+
+    </div>
 		
 		
     

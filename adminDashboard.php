@@ -43,11 +43,14 @@ header("Location: adminLogin.php");
 <body>
     
        <br><br>
-	<h1> ADMIN Dashboard </h1> 
+    <center><h3>DoD Beneficiary Website</h3></center>
+	<center><h4> ADMIN Dashboard </h4> </center>
     
     
     
-	
+<div id="container">
+    
+   
 
  
 <div id="accordion">
@@ -60,7 +63,7 @@ header("Location: adminLogin.php");
   <h3>ADD Users</h3>
   <div>
     <p>
-     <div id="familyForm">
+     <div id="addUserForm">
     	<form action="includes/adminSignup.php" method="post">
             
             <div id="field">Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br /></div>
@@ -137,8 +140,8 @@ header("Location: adminLogin.php");
 
 			$numOfMen = $result['COUNT(gender)'];
 
-			echo "Printing users who are male: " . $numOfMen;
-			print_r($result);
+			echo "Users who are male: " . $numOfMen;
+			
 			
 			echo " <br>";
 			echo " <br>";
@@ -153,8 +156,8 @@ header("Location: adminLogin.php");
 
 			$numOfWomen = $result['COUNT(gender)'];
 
-			echo "Printing users who are female: " . $numOfWomen; 
-			print_r($result);
+			echo "Users who are female: " . $numOfWomen; 
+			
 
 			echo " <br>";
 			echo " <br>";
@@ -168,8 +171,8 @@ header("Location: adminLogin.php");
 
 			$averageAge = $result['AVG(age)'];
 
-			echo "Printing average age of users: " . $averageAge; 
-			print_r($result);
+			echo "Average age of users: " . $averageAge; 
+		
 
 ?>
 		
@@ -177,7 +180,7 @@ header("Location: adminLogin.php");
     </p>
   </div>
 </div>
- 	
+ 	 </div>	
 		
 
 

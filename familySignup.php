@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
       <!--add this to every page as well for parse DB*/-->
       <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
     
-    <title>DoD Beneficiary Sign Up Page</title>
+    <title>DoD Beneficiary Family Sign Up Page</title>
 </head>
 <body>
 	<header>
@@ -33,9 +33,18 @@ if (!isset($_SESSION['username'])) {
       
     </header>
 
-    <br><br>
+    <br><br><br><br>
+    <?php  
+    if(empty($_SESSION['profilePictureDir'])){
+
+      echo "<img id='profilePicDash' src='img/unknown.jpg' alt='Unknown user' ></img>";
+
+      } else{
+      echo "<img id='profilePicDash' src='img/profile/" . $_SESSION['username'] . "/" . $_SESSION['profilePictureDir'] . "'>";
+      }
+    ?>
     <h1>Add a Family Member</h1>
-    <div id="familyForm">
+    <div id="familyForm2">
     	<form action="includes/familySignupProcess.php" method="post">
     		
 			
@@ -46,16 +55,17 @@ if (!isset($_SESSION['username'])) {
                     <option value="F">Female</option>
                     </select> <span id="genderError"></span><br />
             Date of Birth: <input type="date" name="dob" id="dob"> <span id="dobError"></span><br />
-        
-    		<input type="submit" value="Add Family Member" id="familySignUp"> <br />
+            <div >
+                <br>
+                <input id="btn" type="submit" value="Add Family Member" name="familySignUp"> <br />
+            </div>
+    		
         </form>
     </div> 
     
    
 		
-	<footer>
-    	<p>&copy; Copyright  by Nickolas Zarzosa, Alex Lamont, Michael Goita-Sarmiento</p>
-    </footer>
+	\
     
 
 </body>

@@ -8,7 +8,7 @@
   <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>DOD Beneficiary ADMIN Login</title>
+  <title>ADMIN Dashboard</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -28,7 +28,7 @@
 		<a  id="navlinks" href="login.html"> &nbsp;Log In&nbsp; </a>
 		</nav>
         <br><br>
-      <h1>DOD Beneficiary ADMIN Web Site Login</h1>
+      <h1>ADMIN Dashboard</h1>
     </header>
     
     <div id="fieldsetDivAdmin">
@@ -39,10 +39,10 @@
     		<input type="submit" value="Login!" name="loginForm"/>
         </form>
         
-         adminUser/adminUser
+         
       </div>
 	<footer>
-    	<p>&copy; Copyright  by Nickolas Zarzosa, Alex Lamont, Michael Goitia-Sarmiento</p>
+    
     </footer>
     </div>
 	  

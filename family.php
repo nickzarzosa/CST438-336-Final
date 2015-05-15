@@ -2,6 +2,29 @@
 session_start();
 
 
+   
+     
+    function getAllParticipants(){
+    
+        
+                    require 'includes/dbConnection.php'; 
+                    $dbConn = getConnection();
+        
+
+                    $sql = "SELECT * FROM familyMembers
+                            WHERE userID = :userID"; 
+
+                    $namedParameters = array();         
+                    $namedParameters[":userID"]= $_SESSION['userID']; 
+
+
+                    $stmt = $dbConn->prepare($sql); 
+                    $stmt->execute($namedParameters); 
+                    return $stmt->fetchAll();  
+
+        
+        }
+
 if (!isset($_SESSION['username'])) {
     header("Location: login.html");
 }
@@ -40,39 +63,34 @@ if (!isset($_SESSION['username'])) {
 <body>
     
        <br><br>
-	<h1>Family</h1>
+	<h1>Family Members</h1>
     
     <?php 
-    require '/includes/dbConnection.php'; 
     
-   
+
+    $allParticipants = getAllParticipants();
+
+       echo $_SESSION['userID'];
+        echo "<table>";
+        echo "<th>First Name</th>";
+        echo "<th>Last Name</th>";
+        echo "<th>Date of Birth</th>"; 
+        echo "<th>Gender</th>"; 
      
+
+        foreach ($allParticipants as $participant){ 
+            echo "<tr> <td>" . $participant['firstName'] . "</td> ";
+            echo "<td>" . $participant['lastName'] . "</td> ";
+            echo "<td>" . $participant['dob'] . "</td> ";
+            echo "<td>" . $participant['gender'] . "</td> ";
+            echo "<td> <input type='button' value='update'> </td> ";
+            echo "</tr>";
+            
+          } 
+
+       echo "</table>";
     
-     
-    $dbConn = getConnection(); 
-     
-    $sql = "SELECT * FROM familyMembers
-            WHERE username = :username"; 
-             
-    $namedParameters = array();         
-    $namedParameters[":username"]  = $_SESSION['userid']; 
-    
-     
-    $stmt = $dbConn->prepare($sql); 
-    $stmt->execute($namedParameters); 
-    $result = $stmt->fetch(); 
-     
-    if (empty($result)) { 
-        
-        header("Location: adminDashboard.php?error='no entries'"); 
-    } else { 
-         
-        
-         $foundUsername = $result["username"];
-          
-    }  
-    
-   
+
 
 ?> 
 </body>

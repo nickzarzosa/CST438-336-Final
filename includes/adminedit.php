@@ -1,14 +1,45 @@
 <?php
 session_start();
+require 'dbConnection.php'; 
+     
+    $dbConn = getConnection(); 
+   
+  if(isset($_POST['search'])) { 
+     
+    
+     
+    $sql = "SELECT * FROM users
+            WHERE username = :username"; 
+             
+    $namedParameters = array();         
+    $namedParameters[":username"]  = $_POST['username']; 
+    
+     
+    $stmt = $dbConn->prepare($sql); 
+    $stmt->execute($namedParameters); 
+    $result = $stmt->fetch(); 
+     
+    if (empty($result)) { 
+        
+        header("Location: ../adminDashboard.php?error='no entries'"); 
+    } else { 
+         
+        
+         $foundUsername = $result["username"];
+         $_SESSION['founduser'] = $foundUsername;
+          
+    }  
+    
+   
+}
 
 if(!isset($_SESSION['usernameAdmin'])){
 header("Location: adminLogin.php");
 }
-require 'dbConnection.php';
+
 
 //get info fromt he database about the user
 $selecteduser = $_SESSION['founduser'];
-$dbConn = getConnection();
 $sql = "SELECT * FROM users WHERE username = :username";
 $namedparameters = array();
 $namedparameters[':username']=$selecteduser;
@@ -53,7 +84,7 @@ $result = $stmt->fetch();
             
             data: {"username":$("#username").val(),"firstName":$("#firstName").val(),"lastName":$("#lastName").val(),"lastDeployment":$("#lastDeployment").val(),"payGrade":$("#payGrade").val(),"email":$("#email").val()},
             success: function(data,status) {
-                 //alert(data);
+                 alert("User Info Changed");
               },
               complete: function(data,status) { //optional, used for debugging purposes
                  // alert(status);
@@ -86,13 +117,14 @@ $result = $stmt->fetch();
                 Username:<input type="text" name="username" id="username" value="<?=$result['username']?>"><br/></div>
             <div id="field">First name: <input type="text" name="firstName" id="firstName" value="<?=$result['firstName']?>"><br/></div>
             <div id="field">Last name: <input type="text" name="lastName" id="lastName" value="<?=$result['lastName']?>"><br/></div>
-            <div id="field">Last Deployment: <input type="text" name="lastDeployment" id="lastDeployment" value="<?=$result['lastDeployment']?>"><br/></div>
+            <div id="field">Last Deployment: <input type="date" name="lastDeployment" id="lastDeployment" value="<?=$result['lastDeployment']?>"><br/></div>
             <div id="field">pay Grade: <input type="text" name="payGrade" id="payGrade" value="<?=$result['payGrade']?>"><br/></div>
             <div id="field">email: <input type="text" name="email" id="email" value="<?=$result['email']?>"><br/></div>
 
             
-            <input type="submit" id="updateform" name="updateform" value="Update">
-            <a href="../adminDashboard.php" ><input type="button" value="Back to Admin Dashboard" ></a>
+            <input type="submit" id="updateform" name="updateform" value="Update"><br>
+            
+            <a href="../adminDashboard.php" ><input id="btn" type="button" value="Back to Admin Dashboard" ></a>
         </form>
       </div>
     </div>

@@ -3,6 +3,15 @@
 session_start();
 
 
+    
+if(isset($_SESSION['deleted'])){
+
+        echo "<br> <br><br><br> <div id='deleted'> User: ".$_SESSION['deleted']." Deleted </div>";
+        unset($_SESSION['deleted']);
+        unset($_SESSION['deletedUser']);
+}
+
+require 'includes/dbConnection.php'; 
 
 if(!isset($_SESSION['usernameAdmin'])){
 
@@ -11,7 +20,33 @@ header("Location: adminLogin.php");
 }
 
 
+function getAllUsers(){
+    
+            $dbConn = getConnection(); 
+            $sql = "SELECT username FROM users "; 
+            $stmt = $dbConn->prepare($sql); 
+            $stmt->execute(); 
+            return $stmt->fetchAll(); 
+        
+}
 
+  
+if(isset($_SESSION['created'])){
+    
+        
+        echo "<br> <br><br><br> <div id='deleted'>";
+         echo" Success You have signedup! " ;
+    
+        echo"  <br />Under User Name: " . $_SESSION['created'] . "</div>";
+        
+
+        unset($_SESSION['created']);
+        
+}
+   
+    
+   
+ 	
 
 ?>
 
@@ -42,9 +77,8 @@ header("Location: adminLogin.php");
 </head>
 <body>
     
-       <br><br>
-    <center><h3>DoD Beneficiary Website</h3></center>
-	<center><h4> ADMIN Dashboard </h4> </center>
+       <br><br><br>
+    
     
     
     
@@ -57,7 +91,9 @@ header("Location: adminLogin.php");
     <h3>Welcome <?=$_SESSION['name']?>!</h3>
   <div>
     <p>
-    Administrate:
+    <center><h3>DoD Beneficiary Website</h3></center>
+    <img id='profilePicDash' src='img/DMDC_Seal.png' alt='Unknown user' >
+	<center><h4> ADMIN Dashboard </h4> </center>
     </p>
   </div>
   <h3>ADD Users</h3>
@@ -82,31 +118,65 @@ header("Location: adminLogin.php");
             <div id="field">Age: <input type="text" name="age" id="age"> <span id="ageError"></span><br /></div>
             <div id="field">Date of Last Deployment: <input type="date" name="lastDeployment" id="lastDeployment"> <span id="deploymentError"></span><br /></div>
             
-    		<input type="submit" value="Sign Up!" id="signUp"> <br />
+    		<input id="btn" type="submit" value="Sign Up!" id="signUp"> <br />
        </form>
    
     </div> 
     </p>
   </div>
-    <h3>Search and Edit Users</h3>
+    <h3>Search & Edit Users</h3>
   <div>
     <p>
-        Search for User:
-      <form method="post" action="includes/adminSearch.php"> 
-          <input type="text" name="username" id="username"><br>
-          <input type="submit" value="Search!" name="search" id="search">
-      </form>
+        Search for user by username to edit:
+       
+          
+          
       
-      
+      <form method="post" action="includes/adminedit.php">
+      <?php 
+        
+         // Fills in select options with users horrah!
+        $userName = getAllUsers();
+        
+
+        echo "<select name='username' id='username'>";
+
+        foreach ($userName as $user){ 
+          echo '<option value="'.$user['username'].'">'.$user['username'].'</option>'; 
+          } 
+        
+        echo "</select>";
+        
+         
+        ?>
+          <input type="submit" value="Search!" name="search" id="btn">
+          </form>
     </p>
   </div>
-  <h3>Delete User</h3>
+     
+    <h3>Delete User</h3>
   <div>
     <p>
      Delete User:
-      <form method="post" action="includes/deleteProcess.php"> 
-          <input type="text" name="username" id="username"><br>
-          <input type="submit" value="Delete!" name="delete" id="delete">
+      <form method="post" action="includes/deleteProcess.php">
+          <?php 
+        
+         // Fills in select options with users horrah!
+        $userName1 = getAllUsers();
+        
+
+        echo "<select name='username' id='username'>";
+
+        foreach ($userName1 as $user1){ 
+          echo '<option value="'.$user1['username'].'">'.$user1['username'].'</option>'; 
+          } 
+        
+        echo "</select>";
+        
+         
+        ?>
+          
+          <input type="submit" value="Delete!" name="delete" id="btn">
       </form>
     </p>
   </div>
@@ -127,53 +197,37 @@ header("Location: adminLogin.php");
        </form> -->
 		
 		<?php
-
-			require 'includes/dbConnection.php'; //require database connection
+			 //require database connection
 			$dbConn = getConnection(); //connects with database and tables
-
 			$sql = "SELECT COUNT(gender)FROM users WHERE gender = 'M'"; //aggregate function to count the number of males  
 			$namedParameters = array();
-
 			$stmt = $dbConn->prepare($sql);
 			$stmt->execute($namedParameters);
 			$result = $stmt->fetch();
-
 			$numOfMen = $result['COUNT(gender)'];
-
 			echo "Users who are male: " . $numOfMen;
 			
 			
 			echo " <br>";
 			echo " <br>";
-
-
 			$sql = "SELECT COUNT(gender)FROM users WHERE gender = 'F'"; //aggregate function to count the number of females  
 			$namedParameters = array();
-
 			$stmt = $dbConn->prepare($sql);
 			$stmt->execute($namedParameters);
 			$result = $stmt->fetch();
-
 			$numOfWomen = $result['COUNT(gender)'];
-
 			echo "Users who are female: " . $numOfWomen; 
 			
-
 			echo " <br>";
 			echo " <br>";
-
 			$sql = "SELECT AVG(age) FROM users"; //aggregate function to calculate average age from male/female users  
 			$namedParameters = array();
-
 			$stmt = $dbConn->prepare($sql);
 			$stmt->execute($namedParameters);
 			$result = $stmt->fetch();
-
 			$averageAge = $result['AVG(age)'];
-
 			echo "Average age of users: " . $averageAge; 
 		
-
 ?>
 		
     

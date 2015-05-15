@@ -29,6 +29,13 @@ $stmt -> execute( array(":username" => $_POST['username'],
                           ":payGrade" => $_POST['pay'],
                        ));
 
+    $_SESSION['created'] = $_POST['username'];
+
+   
+    
+        
+    header("Location: ../adminDashboard.php");
+
     
 
     
@@ -54,18 +61,7 @@ $stmt -> execute( array(":username" => $_POST['username'],
     
        <br><br>
 	<h1> ADMIN Dashboard </h1>
-    <?php
-    
-    echo" Success You have signedup! " ;
-    
-    echo"  <br />Under User Name: " . $_POST['username'];
-    echo"  <br />First Name: " . $_POST['firstname'];
-    echo"  <br />Last Name: " . $_POST['lastname'];
-    echo"  <br />Email: " . $_POST['gender'];
-
-    
-   
- 	?>
+  
 		
 
 

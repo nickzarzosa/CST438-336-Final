@@ -56,6 +56,36 @@ $dbConn = getConnection();
         $stmt = $dbConn -> prepare($sql);
 
         $stmt -> execute();
+     //Reset Session Variables to reset images!
+    $username = $_SESSION['username'];;
+    
+    session_unset();
+    
+    $sql1 = "SELECT * FROM users
+            WHERE username = :username "; 
+            
+             
+    $namedParameters1 = array();         
+    $namedParameters1[":username"]= $username;
+    
+    
+     
+    $stmt1 = $dbConn->prepare($sql1); 
+    $stmt1->execute($namedParameters1); 
+    $result1 = $stmt1->fetch(); 
+     
+    
+         
+        $_SESSION["username"] = $result1["username"]; 
+        $_SESSION["userID"] = $result1["userID"]; 
+        $_SESSION["IDCardImg"] = $result1["IDCardImg"]; 
+        $_SESSION["birthCertificateImg"] = $result1["birthCertDir"];
+        $_SESSION["formImg"] = $result1["formDir"];
+        $_SESSION["profilePictureDir"] = $result1["profilePictureDir"];
+        
+       header("Location: ../dashboard.php"); 
 
 }
+
+
 ?>

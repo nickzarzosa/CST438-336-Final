@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
         <a  id="navlinks" href="dashboard.php"><img src="img/dashboard.png" width="35" height="35"></a>
 		<a  id="navlinks" href="familySignup.php"> &nbsp; Add a Family Member&nbsp; </a>
 		<a  id="navlinks" href="family.php"> &nbsp;Family Page&nbsp; </a>
-		<a  id="navlinks" href="profile.php"> &nbsp;Profile&nbsp; </a>
+		
         <a  id="logout" href="includes/logout.php"> (Logout: <?=$_SESSION['username']?>) &nbsp;  </a>
 		</nav>
       

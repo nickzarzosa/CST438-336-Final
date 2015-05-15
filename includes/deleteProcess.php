@@ -18,20 +18,40 @@ session_start();
      
     $stmt = $dbConn->prepare($sql); 
     $stmt->execute($namedParameters); 
-    $result = $stmt->fetch(); 
+    //$result = $stmt->fetch(); 
      
-    if (empty($result)) { 
-        echo "Deleted Record";
-        header("Location: adminDashboard.php?error='no entries'"); 
-    } else { 
+    
+       
+       
+   
          
+    $_SESSION['deleted'] = $_POST['username'];
+
+   
+    
         
-         $foundUsername = $result["username"];
+    header("Location: ../adminDashboard.php");
+ 
+
+        
+         
           
     }  
     
    
-}
+
+
+/*if (isset ($_POST['delete'])){  //checking whether we have clicked on the "Delete" button
+    
+    echo " Deleting record...";
+    $sql = "DELETE FROM college 
+             WHERE collegeId = :collegeId";    
+    $namedParameters = array();
+    $namedParameters[':collegeId'] = $_GET['collegeId'];
+    $stmt = $dbConn -> prepare($sql);
+ // $stmt->execute($namedParameters);
+    
+}*/
 
 
 

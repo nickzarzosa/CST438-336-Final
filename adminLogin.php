@@ -29,6 +29,7 @@
 		</nav>
         <br><br>
       <h1>ADMIN Dashboard</h1>
+       user/pwd: adminUser/adminUser
     </header>
     
     <div id="fieldsetDivAdmin">
@@ -36,7 +37,7 @@
     		<div id="field">
                 Username: <input type="text" name="username" id="username"> <span id="usernameError"></span> <br /></div>
             <div id="field"> Password: <input type="password" name="password" id="password"> <span id="passwordError"></span> <br /></div>
-    		<input type="submit" value="Login!" name="loginForm"/>
+    		<input id="btn" type="submit" value="Login!" name="loginForm"/>
         </form>
         
          

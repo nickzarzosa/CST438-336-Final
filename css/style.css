@@ -10,6 +10,14 @@
     
     
 }
+#deleted{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: yellow;
+    color: black;
+    text-align: center;
+}
 
 #container{
     width: 800px;
@@ -236,6 +244,34 @@ footer{
 #btn:hover {
  background: #3cb0fd;
   text-decoration: none;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+#updateform {
+ font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #2378b0;
+  padding: 4px 12px 6px 12px;
+  text-decoration: none;
+  border: none;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#updateform:hover {
+ background: #3cb0fd;
+  text-decoration: none;
+    margin-left: auto;
+  margin-right: auto;
+}
+
+#welcome {
+    display: block;
+  text-align: center;
+  font-size: 18pt;
     margin-left: auto;
   margin-right: auto;
 }
